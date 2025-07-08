@@ -1,9 +1,10 @@
 ﻿.sidebar {
-    width: 350px;
+    width: 300px;
     height: calc(100vh - 56.59px);
     background-color: #f8f9fa;
     border-left: 1px solid #a9afb8;
     padding: 1rem;
+    overflow-y: auto;
 }
 
 select.column-type {

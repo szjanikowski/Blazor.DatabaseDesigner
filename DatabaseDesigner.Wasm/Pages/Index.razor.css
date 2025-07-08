@@ -7,4 +7,14 @@
     height: calc(100vh - 56.59px);
     background-size: 40px 40px;
     background-image: linear-gradient(to right, rgb(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgb(0, 0, 0, 0.05) 1px, transparent 1px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.diagram-container ::deep .diagram {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
 }

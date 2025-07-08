@@ -24,15 +24,19 @@ namespace DatabaseDesigner.Core.Models
                 }
             };
 
-            AddPort(Columns[0], PortAlignment.Right);
-            AddPort(Columns[1], PortAlignment.Left);
+            foreach (var col in Columns)
+            {
+                AddPort(col, PortAlignment.Top);
+                AddPort(col, PortAlignment.Bottom);
+            }
         }
 
         public string Name { get; set; } = "Table";
         public List<Column> Columns { get; }
         public bool HasPrimaryColumn => Columns.Any(c => c.Primary);
 
-        public ColumnPort GetPort(Column column) => Ports.Cast<ColumnPort>().FirstOrDefault(p => p.Column == column);
+        public ColumnPort GetPort(Column column, PortAlignment alignment = PortAlignment.Bottom)
+            => Ports.Cast<ColumnPort>().FirstOrDefault(p => p.Column == column && p.Alignment == alignment);
 
         public void AddPort(Column column, PortAlignment alignment) => AddPort(new ColumnPort(this, column, alignment));
     }
